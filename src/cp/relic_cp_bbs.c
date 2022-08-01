@@ -90,17 +90,17 @@ int cp_bbs_sig(g1_t s, const uint8_t *msg, size_t len, int hash, const bn_t d) {
 			md_map(h, msg, len);
 			bn_read_bin(m, h, RLC_MD_LEN);
 		}
-		printf("\nreadbin");
+		//LOG_DBG("\nreadbin");
 		bn_mod(m, m, n);
-		printf("\nmod");
+		//LOG_DBG("\nmod");
 		/* m = 1/(m + d) mod n. */
 		bn_add(m, m, d);
-		printf("\nadd");
+		//LOG_DBG("\nadd");
 		bn_mod_inv(m, m, n);
-		printf("\nmodinv");
+		//LOG_DBG("\nmodinv");
 		/* s = 1/(m+d) * g1. */
 		g1_mul_gen(s, m);
-		printf("\nmulgen\n");
+		//LOG_DBG("\nmulgen\n");
 	}
 	RLC_CATCH_ANY {
 		result = RLC_ERR;
