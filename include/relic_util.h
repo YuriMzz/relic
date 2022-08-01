@@ -238,9 +238,12 @@
  */
 #ifndef QUIET
 //#define util_print(F, ...)		printf(RLC_STR(F), ##__VA_ARGS__)
-#include "sys/log.h"
+#ifdef PROJECT_CONF_PATH
+#undef PROJECT_CONF_PATH
+#endif
+#include <sys/log.h>
 #define LOG_MODULE "Relic"
-#define LOG_LEVEL LOG_LEVEL_DBG
+#define LOG_LEVEL LOG_LEVEL_WARN
 
 #define util_print(F, ...)		LOG_DBG_(RLC_STR(F), ##__VA_ARGS__)
 #else
