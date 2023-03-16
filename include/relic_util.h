@@ -245,7 +245,7 @@
 #define LOG_MODULE "Relic"
 #define LOG_LEVEL LOG_LEVEL_WARN
 
-#define util_print(F, ...)		LOG_DBG_(RLC_STR(F), ##__VA_ARGS__)
+#define util_print(F, ...)		LOG_INFO_(RLC_STR(F), ##__VA_ARGS__)
 #else
 #define util_print(F, ...)		/* empty */
 #endif
